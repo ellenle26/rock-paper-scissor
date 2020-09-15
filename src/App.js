@@ -46,18 +46,8 @@ export default class componentName extends Component {
       <div>
         <div className="header">ROCK - PAPER - SCISSOR GAME</div>
         <div className="cardSection">
-          <ChoiceCard
-            title="Player"
-            player={true}
-            winner={false}
-            imgUrl={choices.rock}
-          />
-          <ChoiceCard
-            title="Computer"
-            player={false}
-            winner={true}
-            imgUrl={choices.paper}
-          />
+          <ChoiceCard title="Player" winner={false} imgUrl={choices.rock} />
+          <ChoiceCard title="Computer" winner={true} imgUrl={choices.paper} />
         </div>
       </div>
     );

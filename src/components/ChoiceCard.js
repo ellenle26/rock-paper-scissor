@@ -25,14 +25,16 @@ export default class componentName extends Component {
   render() {
     return (
       <div
-        className={`${this.props.player ? `playerCard` : `computerCard`} ${
+        className={`choiceCard ${
           this.props.winner ? `winborder` : `loseborder`
         }`}
       >
-        <h2>{this.props.title}</h2>
+        <h2 className={`${this.props.winner ? `winner` : `loser`}`}>
+          {this.props.title}
+        </h2>
         <img src={this.props.imgUrl} alt="" />
         <div className={`${this.props.winner ? `winner` : `loser`}`}>
-          {this.props.winner ? `YOU WON` : `YOU LOSE`}
+          {this.props.winner ? `WON` : `YOU LOSS`}
         </div>
       </div>
     );
