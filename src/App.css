@@ -24,22 +24,23 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-}
-
-.winner {
-  color: blue;
+  background-color: #fcf2f0;
   font-size: 20px;
   font-weight: bold;
+  color: black;
+  border: solid 5px black;
 }
 
-.loser {
+.win {
+  color: green;
+}
+
+.loss {
   color: red;
-  font-size: 20px;
-  font-weight: bold;
 }
 
 .winborder {
-  border: solid 5px blue;
+  border: solid 5px green;
 }
 
 .loseborder {
