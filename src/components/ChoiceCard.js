@@ -10,7 +10,7 @@ export default function choiceCard(props) {
     >
       <h2 className={`${winner}`}>{title}</h2>
       <img src={imgUrl} alt="" />
-      <div className={`${winner}`}>{winner.toUpperCase()}</div>
+      <p className={`${winner}`}>{winner.toUpperCase()}</p>
     </div>
   );
 }

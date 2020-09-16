@@ -45,7 +45,9 @@ function App() {
   };
 
   const selectItem = (clickedItem) => {
-    console.log("abc");
+    if (score.length > 18) {
+      setButtonStatus(true);
+    }
     setItem(clickedItem);
     setImgUrl(choiceImgs[clickedItem]);
     computerItem = getRandomChoices();
@@ -56,13 +58,13 @@ function App() {
     setScore([...score, checkResult(clickedItem, computerItem)]);
   };
 
-  const functionGiDo = (input) => {
-    console.log(input);
-  };
+  // const functionGiDo = (input) => {
+  //   console.log(input);
+  // };
   // below is render
   return (
     <div>
-      <div className="header">ROCK - PAPER - SCISSORS GAME</div>
+      <div className="header">ROCK - SCISSORS - PAPER GAME</div>
       <div className="cardSection">
         <ChoiceCard
           title="Player"
@@ -70,36 +72,50 @@ function App() {
           imgUrl={imgUrl}
           item={item}
         />
+        <div className="history">
+          <p>Round : Result</p>
+          {score.map((item, index) => {
+            return (
+              <div>
+                {index + 1} : {item}
+              </div>
+            );
+          })}
+        </div>
         <ChoiceCard
           title="Computer"
           winner={conputerResult}
           imgUrl={computerImg}
           item={computerItem}
         />
-        <div>
-          <div>
-            <p>Round : Result</p>
-            {score.map((item, index) => {
-              return (
-                <div>
-                  {index + 1} : {item}
-                </div>
-              );
-            })}
-          </div>
-        </div>
       </div>
-      <button onClick={() => start()}>START GAME</button>
-      <button onClick={() => selectItem("rock")} disabled={buttonStatus}>
-        Rock
-      </button>
-      <button onClick={() => selectItem("scissors")} disabled={buttonStatus}>
-        Scissors
-      </button>
-      <button onClick={() => selectItem("paper")} disabled={buttonStatus}>
-        Paper
-      </button>
-      <input onChange={(e) => functionGiDo(e.target.value)} />
+      <div className="controlSection">
+        <button className="controlBttn" onClick={() => start()}>
+          START GAME
+        </button>
+        <button
+          className="controlBttn"
+          onClick={() => selectItem("rock")}
+          disabled={buttonStatus}
+        >
+          <i class="far fa-hand-rock"></i>&nbsp;Rock
+        </button>
+        <button
+          className="controlBttn"
+          onClick={() => selectItem("scissors")}
+          disabled={buttonStatus}
+        >
+          <i class="far fa-hand-scissors"></i>&nbsp;Scissors
+        </button>
+        <button
+          className="controlBttn"
+          onClick={() => selectItem("paper")}
+          disabled={buttonStatus}
+        >
+          <i class="far fa-hand-paper"></i>&nbsp;Paper
+        </button>
+      </div>
+      {/* <input onChange={(e) => functionGiDo(e.target.value)} /> */}
     </div>
   );
 }
